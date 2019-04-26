@@ -2,6 +2,7 @@
   "name": "calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://josh5k.github.io/react-calculator/",
   "dependencies": {
     "big.js": "^5.2.2",
     "react": "^16.8.6",
