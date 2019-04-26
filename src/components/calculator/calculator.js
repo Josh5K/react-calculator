@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Display from "./display/display";
 import Buttons from './buttons/buttons';
+import Calculate from '../../actions/calculate'
 
 class Calculator extends Component {
 
@@ -14,11 +15,10 @@ class Calculator extends Component {
   }
 
   handleClick = buttonName => {
-    console.log(buttonName);
+    this.setState(Calculate.getNewState(this.state, Calculate.filterKeys(buttonName)));
   };
 
   render() {
-
       const container = {
         display: 'flex',
         flexDirection: 'column',
@@ -27,7 +27,7 @@ class Calculator extends Component {
       }
 
     return (
-    <div style={container}>
+    <div style={container} onKeyDown={(e) => this.handleClick(e.key)} >
       <Display value={this.state.next || this.state.total || "0"} />
       <Buttons clickHandler={this.handleClick} />
     </div>
