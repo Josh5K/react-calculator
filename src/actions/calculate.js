@@ -49,10 +49,13 @@ class Calculate {
      */
     filterKeys = (buttonName) => {
         let temp = buttonName;
-        let operators = ["x", "+", "-", "/", "=", "%", "AC", "+/-", "."]
+        let operators = ["x", "+", "-", "=", "%", "AC", "+/-", ".", "÷"]
 
         if(temp === "Enter") {
             temp = "=";
+        }
+        else if(temp === "/") {
+            temp = "÷";
         }
         else if(operators.indexOf(temp) === -1 && isNaN(temp)) {
             temp = null;
